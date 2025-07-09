@@ -1,0 +1,71 @@
+{
+	"info": {
+		"_postman_id": "40f42352-995f-4ecd-ab5b-ead40e60e9a5",
+		"name": "Smart-Bet",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28041490"
+	},
+	"item": [
+		{
+			"name": "ContactUsTests",
+			"item": [
+				{
+					"name": "validTestData",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200 or 201\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is acceptable\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"service_id\": \"service_1xlzvlb\",\r\n  \"template_id\": \"template_o9waaky\",\r\n  \"user_id\": \"ynMymMQfd6SC5enIx\",\r\n  \"template_params\": {\r\n    \"from_name\": \"And\",\r\n    \"from_last_name\": \"Arak\",\r\n    \"email\": \"andarakelyan@gmail.com\",\r\n    \"message\": \"Just testing your endpoint, sorry for bothering\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.emailjs.com/api/v1.0/email/send",
+							"protocol": "https",
+							"host": [
+								"api",
+								"emailjs",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1.0",
+								"email",
+								"send"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
